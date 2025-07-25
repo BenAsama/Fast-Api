@@ -22,4 +22,7 @@ def get_posts():
 def create_post(new_post: post):
     print(new_post.title)
     return{}
-# title str, content str, category
+
+@app.get("/something")
+def something():
+    pass
