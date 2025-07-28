@@ -56,3 +56,14 @@ def delete_post(id):
         raise(HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"post with id"))
     my_posts.pop(index)
     return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+@app.put("/posts/{id}")
+def update_posts(id: int,post: post):
+
+    index = find_index_post(id)
+    if index == None:
+        raise(HTTPException(status_code=status.HTTP_404_NOT_FOUND,detail=f"post with id"))
+    post_dict['id']=id
+    my_posts[index]=post_dict
+
+    return {'post':'post_dict'}
